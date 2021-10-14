@@ -2,7 +2,7 @@ AM_CFLAGS = -Wall -Werror -ggdb
 AM_LDFLAGS = -lpcap
 
 # LIBS = /usr/lib/x86_64-linux-gnu/libpcap.a
-LIBS = $( find /usr/lib/ -name libpcap.a )
+# LIBS = $( find /usr/lib/ -name libpcap.a )
 
 bin_PROGRAMS = ethping ethtrace dot1agd dot1ag_ccd
 
