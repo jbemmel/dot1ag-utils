@@ -165,7 +165,7 @@ get_local_mac(char *dev, uint8_t *ea) {
 
 	/* get interface index */
 	memset(&req, 0, sizeof(req));
-	strncpy(req.ifr_name, dev, sizeof(req.ifr_name));
+	strncpy(req.ifr_name, dev, sizeof(req.ifr_name)-1);
 
 	/* get MAC address of interface */
 	if (ioctl(s, SIOCGIFHWADDR, &req)) {
@@ -204,7 +204,7 @@ send_packet(char *ifname, uint8_t *buf, int size) {
 
 	/* get interface index */
 	memset(&req, 0, sizeof(req));
-	strncpy(req.ifr_name, ifname, sizeof(req.ifr_name));
+	strncpy(req.ifr_name, ifname, sizeof(req.ifr_name)-1);
 	if (ioctl(s, SIOCGIFINDEX, &req)) {
 		perror(ifname);
 		exit(EXIT_FAILURE);

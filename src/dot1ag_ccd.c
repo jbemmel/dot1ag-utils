@@ -540,7 +540,9 @@ cfm_ccm_receiver(char *ifname, struct pcap_pkthdr *pcap_hdr,
 			break;
 		}
 		/* copy MD Name to buffer, ensuring trailing '\0' */
-		strncpy(mdnamebuf, (char *) md_namep, mdnl);
+		/* JvB this triggers a false positive in gcc */
+		// strncpy(mdnamebuf, (char *) md_namep, mdnl);
+		memcpy(mdnamebuf, (char *) md_namep, mdnl);
 
 		if (verbose) {
 			fprintf(stderr, ", MD \"%s\"", mdnamebuf);

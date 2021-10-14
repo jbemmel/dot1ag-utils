@@ -1,5 +1,9 @@
 AM_CFLAGS = -Wall -Werror -ggdb
+# AM_LDFLAGS = -Wl,-Bstatic -lpcap -Wl,-Bdynamic -lgcc
+# AM_LDFLAGS = /usr/lib/x86_64-linux-gnu/libpcap.a
 AM_LDFLAGS = -lpcap
+
+LIBS = /usr/lib/x86_64-linux-gnu/libpcap.a
 
 bin_PROGRAMS = ethping ethtrace dot1agd dot1ag_ccd
 
